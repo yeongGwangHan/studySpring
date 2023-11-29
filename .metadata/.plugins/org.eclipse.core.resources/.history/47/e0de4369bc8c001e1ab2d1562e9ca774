@@ -1,0 +1,14 @@
+
+
+
+
+- Spring Legacy Project
+  was 사용경험, Model2 방식 개발
+     아직까지 실무에서 사용빈도가 높음(이전코드)
+     구글링이 쉬움(자료가 많다)
+     모든 버전의 스프링을 사용가능
+  
+      초반설정 및 세팅이 어려움   
+  
+- Spring Stater Project(Boot)
+     초반 설정 및 세팅이 쉬움

@@ -1,0 +1,17 @@
+package com.itwillbs.web;
+
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+/**
+ * 
+ * 디비연결 테스트 (Spring - DataSource 사용)
+ */
+
+// @RunWith(SpringJUnit4ClassRunner.class)
+// => 스프링 
+
+@RunWith(SpringJUnit4ClassRunner.class)
+public class DataSourceTest {
+
+}

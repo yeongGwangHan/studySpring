@@ -1,0 +1,15 @@
+package com.itwillbs.web;
+
+/**
+ *  mysql 데이터베이스 연결을 테스트하기위한 클래스
+ */
+
+public class MysqlConnectTest {
+	
+	// 디비연결 정보
+	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+	private static final String DBURL = "jdbc:mysql://localhost:3306/springdb";
+	private static final String DRID = "root";
+	private static final String DRPW = "1234";
+	
+}
