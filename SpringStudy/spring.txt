@@ -131,7 +131,34 @@ Spring WebMVC : 스프링MVC관련 기능 제공
  @Autowired @Qualifier("ds2")
  private DataSource ds;    
      
-   (git) commit test  
-     
-     
+   * DAO -> MyBatis -> DB + Test(Junit)
+   
+   1) XML을 사용하여 SQL작성, DAO 객체생성하여 연결
+      - SQL구문 수정 및 유지보수가 우수함
+   	  - 개발시 코드의 양이 증가(복잡도 증가)
+   
+   2) 어노테이션을 사용해서 SQL작성, DAO 인터페이스를 생성해서 연결
+   	  - DAO 객체 없이 인터페이스만으로 처리(생산성증가)
+   	  - SQL 변경시 매번 컴파일 해야하는 단점
+   	  
+   3) XML/어노테이션 사용 SQL 작성, DAO객체 생성해서 연결  
+      - SQL 작성시 간단-어노테이션, 복잡-XML 사용하여 처리
+	  - 개발자의 역량에 따른 큰 차이가 발생가능하다
+	
+   도메인 : 프로젝트에 중요한 단어(용어) => 물리적인 환경으로 분리가능한 단위
+       ex) 쇼핑몰 -> 회원, 상품, 관리자, 주문, 장바구니... (1차 도메인)
+                     이름  상품번호... (2차 도메인)
+	  
+   * MyBatis 개발 사용 순서
+     - 데이터베이스 생성 (계정)
+     - 테이블 생성, 설정준비
+     - 도메인 객체(클래스) 생성 => DTO/VO(Value Object)생성
+     - DAO 인터페이스 생성
+     - 인터페이스에 구현해야하는 동작을 추상메서드 선언
+     - Xml(Mapper)생성 , 위치(저장경로 - nanespace) 설정
+     - Xml mapperDTD 추가
+     - SQL 구문 작성(태그형태)
+     - XML(mapper)정보를 MyBatis에서 인식하도록 설정
+     - DAO 객체 생성
+     - 테스트 동작 수행
       							

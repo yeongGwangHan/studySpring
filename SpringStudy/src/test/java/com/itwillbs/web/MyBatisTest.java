@@ -19,11 +19,15 @@ public class MyBatisTest {
 	@Inject
 	private SqlSessionFactory sqlFactory;
  	
+	@Inject
+	private SqlSession sqlSession;
+	
 	@Test
 	public void mybatis연결테스트() {
 		System.out.println(sqlFactory);
 //		SqlSession session = sqlFactory.openSession();
 //		session.insert(statement);
+		System.out.println(sqlSession);
 	}
 	
 	
