@@ -12,7 +12,11 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.itwillbs.web">
-		<level value="info" />
+		<level value="DEBUG" />
+	</logger>
+	
+	<logger name="com.itwillbs.persistence">
+		<level value="DEBUG" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->

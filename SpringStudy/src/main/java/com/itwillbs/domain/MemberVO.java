@@ -21,7 +21,7 @@ public class MemberVO {
 	// tbl_member 테이블의 정보를 저장
 	
 	private String userid;
-	private String userpass;
+	private String userpw;
 	private String username;
 	private String useremail;
 	private Timestamp regdate;
