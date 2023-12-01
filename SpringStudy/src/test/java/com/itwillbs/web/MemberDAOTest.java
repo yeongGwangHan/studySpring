@@ -71,10 +71,34 @@ public class MemberDAOTest {
 		}
 	}
 	
-	@Test
+//	@Test
 	public void 회원정보조회_테스트() {
 		logger.debug("사용자의 ID사용해서 회원정보 모두 조회");
+		String userid = "admin1";
 		
+		mdao.getMember(userid); 
+		
+		logger.debug("회원정보 조회 완료!");
+	}
+	
+	@Test
+	public void 회원정보_수정_테스트() {
+		logger.debug("회원정보_수정_테스트()");
+		MemberVO vo = new MemberVO();
+		vo.setUserid("admin");
+		vo.setUserpw("1234");
+		vo.setUsername("수정이름3");
+		
+		mdao.updateMember(vo);
+	}
+	
+//	@Test
+	public void 회원정보_삭제_테스트() {
+		logger.debug("회원정보_삭제_테스트()");
+		MemberVO vo = new MemberVO();
+		vo.setUserid("admin");
+		
+		mdao.deleteMember(vo);
 		
 	}
 }

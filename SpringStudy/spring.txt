@@ -155,7 +155,7 @@ Spring WebMVC : 스프링MVC관련 기능 제공
      - 도메인 객체(클래스) 생성 => DTO/VO(Value Object)생성 x
      - DAO 인터페이스 생성 x
      - 인터페이스에 구현해야하는 동작을 추상메서드 선언 O
-     - Xml(Mapper)생성 , 위치(저장경로 - nanespace) 설정 x
+     - Xml(Mapper)생성 , 위치(저장경로 - namespace) 설정 x
      - Xml mapperDTD 추가 x
      - SQL 구문 작성(태그형태) O
      - XML(mapper)정보를 MyBatis에서 인식하도록 설정 x

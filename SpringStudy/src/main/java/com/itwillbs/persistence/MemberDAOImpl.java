@@ -83,6 +83,37 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return resultVO;
 	}
+
+	@Override
+	public MemberVO getMember(String userid) {
+		logger.debug("getMember(String userid) 실행");
+		
+		MemberVO resultVO = sqlSession.selectOne(NAMESPACE+".getMember",userid); // resultVO를 수정할 수 있다!
+		
+		logger.debug("결과 : "+resultVO);
+		
+		return resultVO;
+//		return sqlSession.selectOne(NAMESPACE+".getMember",userid); // 그대로 쓴다
+	}
+
+	@Override
+	public void updateMember(MemberVO vo) {
+		logger.debug(" updateMember(MemberVO vo) ");
+		sqlSession.update(NAMESPACE+".updateMember", vo);
+	}
+
+
+	@Override
+	public int deleteMember(MemberVO vo) {
+		logger.debug(" deleteMember(MemberVO vo) ");
+		
+		return sqlSession.delete(NAMESPACE+".deleteMember",vo);
+	}
+	
+	
+
+	
+	
 	
 	
 
