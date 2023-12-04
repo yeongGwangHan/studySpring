@@ -188,3 +188,24 @@ Spring WebMVC : 스프링MVC관련 기능 제공
 	#{userid} => ?에 값을 담았던 동작 수행 => 상황에 따라
 				 pstmt.setString("userid")    vo.setUserid();
 				                              vo.getUserid();
+				                         
+	  요청		-> 	Controller	-> 	Service	  ->  DAO -> MyBatis ->DB
+	(request)			|
+					   View
+					   
+   * Controller
+   [ 스프링 MVC에서 기본적으로 처리하는 작업 ]
+   - URI를 분석해서 적절한 컨트롤러를 찾는 작업(~.me,~.bo)
+   - 컨트롤러에 필요한 메서드를 호출(기존동작 if~제어)
+   - 컨트롤러의 데이터(결과)를 뷰페이지로 전달(기존 request 영역저장 + forward)
+   - URI에 따른 뷰페이지 연결(기존 ActionForward-path)
+   - 파타미터 자동 수집(VO/DTO)
+   - 테스트 / 개발로직에 집중가능
+   
+   [ 개발자가 수행하는 작업 ]
+   - 특정 URI에 동작하는 컨트롤러 설계(매핑)
+   - 서비스 객체 생성
+   - DAO 객체 생성
+   - 컨트롤러 내부에 동작을 처리하는 메서드 설계
+   - 전달받은 데이터를 뷰페이지에 출력
+   
