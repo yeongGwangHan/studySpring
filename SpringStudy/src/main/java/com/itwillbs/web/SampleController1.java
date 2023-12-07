@@ -19,7 +19,7 @@ public class SampleController1 {
 	// http://localhost:8088/web/doA.me
 	// 구현한고자 하는 동작을 메서드로 선언
 	//@RequestMapping(value = "URI주소", method = 전달방식 )
-//	@RequestMapping(value = "/doA",method = RequestMethod.GET)
+	@RequestMapping(value = "/doA",method = RequestMethod.GET)
 	public void doA() {
 		logger.debug("doA() 실행");
 		

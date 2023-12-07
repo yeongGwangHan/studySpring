@@ -33,7 +33,7 @@ public class SampleController3 {
 		
 		// => 연결된 뷰페이지로 전달, 
 		// Model 객체 생성(view-controller 사이에 정보전달 전용객체)
-//		model.addAttribute("resultVO", resultVO);
+		//model.addAttribute("resultVO", resultVO);
 		
 		model.addAttribute(resultVO);
 		// => 전달하는 대상의 이름이 없는 경우
