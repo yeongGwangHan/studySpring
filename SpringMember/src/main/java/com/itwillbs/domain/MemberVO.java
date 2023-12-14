@@ -12,6 +12,6 @@ public class MemberVO {
 	private String useremail;
 	
 	private Timestamp regdate;
-	private Timestamp updategdate;
+	private Timestamp updatedate;
 	
 }
