@@ -4,9 +4,24 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.itwillbs.mapper.BoardMapper">
-  
+  	
+  	<!-- 글쓰기 -->
   	<insert id="insertBoard">
   		insert into tbl_board(title,content,writer) values(#{title},#{content},#{writer})
   	</insert>
-  
+  	
+  	<!-- 모든 글 조회(ALL) -->
+  	<select id="listAll" resultType="BoardVO">
+  		select * from tbl_board
+  	</select>
+  	
+  	<!-- 특정 글 조회  -->
+  	<select id="getBoard" resultType="BoardVO">
+  		select * from tbl_board where bno=#{bno}
+  	</select>
+  	
+  	<!-- 특정 글 수정 -->
+  	<update id="updateBoard">
+  		update tbl_board set title=#{title}, content=#{content} where bno=#{bno}
+  	</update>
   </mapper>
