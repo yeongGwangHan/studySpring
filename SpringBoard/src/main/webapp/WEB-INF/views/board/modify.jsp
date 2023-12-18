@@ -2,18 +2,17 @@
 
 <%@ include file="../include/header.jsp"%>
 
-<h1>/board/read.jsp</h1>
+<h1>/board/modify.jsp</h1>
 
-<!-- 본문보기 시작 -->
+<!-- 글수정 폼태그 시작 -->
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title">ITWILL 게시판 글쓰기</h3>
+		<h3 class="box-title">ITWILL 게시판 글수정</h3>
 	</div>
 
 
 	<form role="form" method="post">
-		<input type="hidden" name ="bno" value="${resultVO.bno}">
-	</form>
+		<input type="hidden" name="bno" value="${resultVO.bno }">
 		<div class="box-body">
 			<div class="form-group">
 				<label for="writerInput">작성자</label> 
@@ -30,37 +29,10 @@
 		</div>
 
 		<div class="box-footer">
-			<button type="button" class="btn btn-success" >수정</button>
-			<button type="submit" class="btn btn-danger" >삭제</button>
-			<button type="submit" class="btn btn-primary" >목록</button>
+			<button type="submit" class="btn btn-success" >글수정</button>
 		</div>
-	
+	</form>
 </div>
-<!-- 본문보기 끝 -->
-
-<script type="text/javascript">
- 	$(document).ready(function(){
- 		
- 		// 목록 버튼 클릭시 목록으로 페이지 이동
- 		$(".btn-primary").click(function(){
- 			location.href='/board/listAll';
- 		});
- 		
- 		var formObj = $("form[role='form']");
- 		//alert(formObj);
- 		console.log(formObj);
- 		
- 		// 수정 버튼 클릭시, 글번호 정보를 가지고 submit
- 		// 이동하는 페이지주소 변경, 전달방식 변경POST->GET
- 		$(".btn-success").click(function(){
- 			formObj.attr("action","/board/modify");
- 			formObj.submit();
- 		});
- 		
- 		
- 		
- 		
- 	});
-</script>
+<!-- 글쓰기 폼태그 끝 -->
 
 <%@ include file="../include/footer.jsp"%>

@@ -24,4 +24,14 @@
   	<update id="updateBoard">
   		update tbl_board set title=#{title}, content=#{content} where bno=#{bno}
   	</update>
+  	
+  	<!-- 특정 글 조회수 1증가 -->
+  	<update id="updateViewCnt">
+  		update tbl_board set viewcnt=viewcnt+1 where bno = #{bno}
+  	</update>
+  	
+  	<!-- 특정 글 정보 삭제 -->
+  	<delete id="deleteBoard">
+  		delete from tbl_board where bno = #{bno}
+  	</delete>
   </mapper>

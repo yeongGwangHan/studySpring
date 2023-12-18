@@ -31,7 +31,7 @@ ${result}
 						<td>
 							<fmt:formatDate value="${bvo.regdate }" pattern="yyyy-MM-dd (a)hh:mm:ss"/>
 						</td>
-						<td><span class="badge bg-red">${bvo.viewcnt }</span></td>
+						<td><span class="badge bg-green">${bvo.viewcnt }</span></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -58,6 +58,14 @@ ${result}
 	
 	if(result == "CREATEOK"){
 		alert("글 쓰기 완료!");
+	}
+	
+	if(result == "modifyOK"){
+		alert("글 수정 완료!");
+	}
+	
+	if(result == "deleteOK"){
+		alert("글 삭제 완료!");
 	}
 	
 </script>

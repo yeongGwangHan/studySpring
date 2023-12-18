@@ -46,11 +46,24 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void updateBoard(BoardVO vo) throws Exception {
+	public int updateBoard(BoardVO vo) throws Exception {
 		logger.debug("service - getBoard(int bno)");
-		
-		bdao.updateBoard(vo);
+		return bdao.updateBoard(vo);
 	}
+
+	@Override
+	public void increaseViewCnt(int bno) throws Exception {
+		logger.debug("service - increaseViewCnt(int bno)");
+		bdao.updateViewCnt(bno);
+	}
+
+	@Override
+	public void deleteBoard(int bno) throws Exception {
+		logger.debug("service - deleteBoard(int bno)");
+		bdao.deleteBoard(bno);
+	}
+	
+	
 	
 	
 	

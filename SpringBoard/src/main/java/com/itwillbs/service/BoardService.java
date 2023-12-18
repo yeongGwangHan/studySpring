@@ -12,9 +12,15 @@ public interface BoardService {
 	// 게시판글 정보 가져오기
 	public List<BoardVO> boardListAll() throws Exception;
 	
-	// 특정 게시판글 정보가져오기
+	// 특정 게시판글 정보 가져오기
 	public BoardVO getBoard(int bno) throws Exception;
 	
 	// 특정 게시판글 수정
-	public void updateBoard(BoardVO vo) throws Exception;
+	public int updateBoard(BoardVO vo) throws Exception;
+	
+	// 특정 게시판글 조회수 증가
+	public void increaseViewCnt(int bno) throws Exception;
+	
+	// 특정 게시판글 삭제
+	public void deleteBoard(int bno) throws Exception;
 }

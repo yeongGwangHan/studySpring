@@ -31,7 +31,7 @@
 
 		<div class="box-footer">
 			<button type="button" class="btn btn-success" >수정</button>
-			<button type="submit" class="btn btn-danger" >삭제</button>
+			<button type="button" class="btn btn-danger" >삭제</button>
 			<button type="submit" class="btn btn-primary" >목록</button>
 		</div>
 	
@@ -58,7 +58,11 @@
  			formObj.submit();
  		});
  		
- 		
+ 		// 삭제 버튼 클릭시, 글번호를 사용해서 삭제 처리
+ 		$(".btn-danger").click(function(){
+ 			formObj.attr("action","/board/delete");
+ 			formObj.submit();
+ 		});
  		
  		
  	});

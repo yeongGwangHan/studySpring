@@ -16,5 +16,12 @@ public interface BoardDAO {
 	public BoardVO getBoard(int bno) throws Exception;
 	
 	// 특정 글 정보 수정
-	public void updateBoard(BoardVO vo) throws Exception;
+	public int updateBoard(BoardVO vo) throws Exception;
+	
+	// 특정 게시판글 조회수 증가
+	public void updateViewCnt(int bno) throws Exception;
+	
+	// 특정 게시판글 삭제
+	public void deleteBoard(int bno) throws Exception;
+	
 }
