@@ -43,7 +43,7 @@
  		
  		// 목록 버튼 클릭시 목록으로 페이지 이동
  		$(".btn-primary").click(function(){
- 			location.href='/board/listAll';
+ 			location.href='/board/listPage';
  		});
  		
  		var formObj = $("form[role='form']");

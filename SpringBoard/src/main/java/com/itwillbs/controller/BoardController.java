@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
+import com.itwillbs.domain.PageVO;
 import com.itwillbs.service.BoardService;
 
 @Controller
@@ -144,4 +146,71 @@ public class BoardController {
 		
 		return "redirect:/board/listAll";
 	}
-}
+	
+	/**
+	 *  페이징처리
+	 *  0. 반드시 GET방식으로만 처리!
+	 *  1. 원하는 만큼의 데이터를 가져와서 출력
+	 *  2. 페이지 블럭(하단 블럭) 생성
+	 *  3. 본문/수정/삭제등 ... 처리후 리스트 이동시 기존의 정보를 유지
+	 *     
+	 *  a태그 : 네이버 쇼핑 / 유사한 코드의 반복적인 동작 수행
+	 *  	    => 검색엔진 노출이 쉬움
+	 *  
+	 *  form태그 : 쿠팡 / input태그를 사용해서 처리
+	 *    		=> 데이터처리 (빠른 처리)
+	 *    
+	 *  2. 하단 페이징 블럭
+	 *    1) 시작페이지 번호
+	 *    2) 끝 페이지 번호
+	 *    3) 전체 데이터(글)의 개수
+	 *    4) 이전페이지 링크(boolean)
+	 *    5) 다음페이지 링크(boolean)
+	 *    
+	 *    ex) 총 122개 / 페이지당 10개씩 출력
+	 *     - 1페이지 : 시작페이지번호 : 1 끝페이지 번호 : 10 / 이전 : N 다음 : Y
+	 *     - 7페이지 : 시작페이지번호 : 1 끝페이지 번호 : 10 / 이전 : N 다음 : Y
+	 *     - 12페이지 : 시작페이지번호 : 11 끝페이지 번호 : 20->13 / 이전 : Y 다음 : N
+	 *    
+	 */
+	
+	// http://localhost:8088/board/listPage
+	// http://localhost:8088/board/listPage?page=1
+	// http://localhost:8088/board/listPage?pageSize=20
+	// http://localhost:8088/board/listPage?page=3&pageSize=15
+	// 게시판 리스트 - GET
+		@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+		public String listPageGET(Model model, 
+								 @ModelAttribute("result") String result,
+								 HttpSession session,
+								 Criteria cri
+								 ) throws Exception {
+			logger.debug("/board/listPage -> listPageGET()");
+			
+			session.setAttribute("viewcntCheck", true);
+			
+//			Criteria cri = new Criteria();
+//			cri.setPage(2);
+//			cri.setPageSize(10);
+			
+			// 서비스 - 디비에 저장된 글을 가져오기
+			List<BoardVO> boardList = bService.boardListPage(cri);
+//			logger.debug("@_@"+boardList);
+			
+			// 페이지 블럭 정보 준비 -> view 페이지 전달
+			PageVO pageVO = new PageVO();
+			pageVO.setCri(cri);
+			pageVO.setTotalCount(646); // 디비에서 직접 실행결과 가져오기
+			
+			logger.debug("확인 : "+pageVO);
+			model.addAttribute("pageVO", pageVO);
+			// 데이터를 연결된 뷰페이지로 전달(Model)
+			model.addAttribute("boardList", boardList); // 배열일 경우 이름 지정해놓는 것이 좋음(직관적으로 알아보기 위해서)
+//			model.addAttribute("boardList", bService.boardListAll());
+			
+			return "/board/listAll";
+		}
+	
+	
+	
+} // controller
