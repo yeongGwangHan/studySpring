@@ -69,5 +69,12 @@ public class BoardServiceImpl implements BoardService {
 		logger.debug("service - boardListPage(Criteria cri)");
 		return bdao.getBoarListPage(cri);
 	}
+
+	@Override
+	public int totalBoardCount() throws Exception {
+		logger.debug("service - totalBoardCount() ");
+		return bdao.getBoardCount();
+	}
+	
 	
 }

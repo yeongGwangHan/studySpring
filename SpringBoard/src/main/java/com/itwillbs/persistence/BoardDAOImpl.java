@@ -83,6 +83,14 @@ public class BoardDAOImpl implements BoardDAO {
 		logger.debug("DAO : getBoarListPage(Criteria cri)");
 		return sqlSession.selectList(NAMESPACE+".listPage", cri);
 	}
+
+	@Override
+	public int getBoardCount() throws Exception {
+		logger.debug("DAO : getBoardCount() ");
+		return sqlSession.selectOne(NAMESPACE+".countBoard");
+	}
+	
+	
 	
 	
 

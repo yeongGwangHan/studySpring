@@ -27,4 +27,7 @@ public interface BoardService {
 	
 	// 게시판글 정보 가져오기
 	public List<BoardVO> boardListPage(Criteria cri) throws Exception;
+	
+	// 게시판 글 갯수 가져오기
+	public int totalBoardCount() throws Exception;
 }

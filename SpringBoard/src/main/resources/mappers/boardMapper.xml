@@ -55,6 +55,14 @@
   		limit #{startPage},#{pageSize}
   	</select>
   	
+  	<!-- 전체 글 개수 조회  -->
+	<select id="countBoard" resultType="int">
+		<!-- 태그와 > 구분한다 -->
+		<![CDATA[
+			select count(*) from tbl_board 
+			where bno > 0
+	 	]]>
+	</select>  	
   	
   	
   	

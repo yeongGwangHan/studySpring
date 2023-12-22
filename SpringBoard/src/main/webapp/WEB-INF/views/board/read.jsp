@@ -3,7 +3,6 @@
 <%@ include file="../include/header.jsp"%>
 
 <h1>/board/read.jsp</h1>
-
 <!-- 본문보기 시작 -->
 <div class="box box-primary">
 	<div class="box-header with-border">

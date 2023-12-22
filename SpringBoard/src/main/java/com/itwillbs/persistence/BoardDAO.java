@@ -30,4 +30,7 @@ public interface BoardDAO {
 	// 글 목록 조회(분류 객체)
 	public List<BoardVO> getBoarListPage(Criteria cri) throws Exception;
 	
+	// 글 갯수
+	public int getBoardCount() throws Exception;
+	
 }

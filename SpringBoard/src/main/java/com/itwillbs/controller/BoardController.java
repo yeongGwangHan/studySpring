@@ -200,7 +200,8 @@ public class BoardController {
 			// 페이지 블럭 정보 준비 -> view 페이지 전달
 			PageVO pageVO = new PageVO();
 			pageVO.setCri(cri);
-			pageVO.setTotalCount(646); // 디비에서 직접 실행결과 가져오기
+//			pageVO.setTotalCount(646); // 디비에서 직접 실행결과 가져오기
+			pageVO.setTotalCount(bService.totalBoardCount());
 			
 			logger.debug("확인 : "+pageVO);
 			model.addAttribute("pageVO", pageVO);
