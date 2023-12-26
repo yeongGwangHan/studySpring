@@ -17,9 +17,13 @@
 	<h2> 파일명 : 
 		<c:forEach var="fileName" items="${paramMap.fileList }">
 			<a href="/download?fileName=${fileName}">${fileName}</a>,
+			<hr>
+			<img src="/download?fileName=${fileName}">
 		</c:forEach>
 	</h2>
 	
 	<a href="/fileUpload">다시 업로드 하기</a>
+	
+	
 </body>
 </html>
