@@ -37,4 +37,11 @@ public class CommonsController {
 		logger.debug("myLoginPage() 실행");
 		logger.debug("/customLogin.jsp 페이지 이동");
 	}
+	
+	// 로그아웃
+	@RequestMapping(value = "/logout",method = RequestMethod.GET)
+	public void myLogoutPage() throws Exception{
+		logger.debug("myLogoutPage() 실행");
+		
+	}
 }
