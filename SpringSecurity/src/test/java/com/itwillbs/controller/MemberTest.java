@@ -14,6 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.itwillbs.domain.MemberVO;
+import com.itwillbs.persistence.MemberDAOImpl;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/*-context.xml"})
 public class MemberTest {
@@ -25,6 +28,19 @@ public class MemberTest {
 	
 	@Inject
 	private PasswordEncoder pwEncoder;
+	
+	@Inject
+	private MemberDAOImpl mdao;
+	
+	@Test
+	public void 회원정보조회_조인_테스트() throws Exception{
+		logger.debug("회원정보조회_조인_테스트() 실행");
+		
+		MemberVO resultVO = mdao.memberJoin();
+		
+		logger.debug("resultVO : "+resultVO);
+	}
+	
 	
 //	@Test
 	public void 회원정보생성_테스트() throws Exception{
@@ -59,7 +75,7 @@ public class MemberTest {
 	}
 	
 	// 회원 정보에 따른 권한 설정
-	@Test
+//	@Test
 	public void 회원정보권한_테스트() throws Exception{
 		
 		Connection con = ds.getConnection();
