@@ -3,5 +3,6 @@
 <aop-project name="SpringStudy"/>
 <aop-project name="SpringMember"/>
 <aop-project name="SpringSecurity"/>
+<aop-project name="SpringREST"/>
 <aop-project name="SpringBoard"/>
 </aop-reference-model>
