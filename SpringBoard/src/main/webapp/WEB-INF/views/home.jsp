@@ -2,32 +2,74 @@
 <%@ page session="false" pageEncoding="UTF-8"%>
 <%@ include file="include/header.jsp" %>
 
-<h1>
-	Hello world!  
-</h1>
+작성자 : <input type="text" name="writer" id="writer"> <br>
+제목 : <input type="text" name="title" id="title"><br>
+내용 : <input type="text" name="content" id="content"><br>
 
-<P>  The time on the server is ${serverTime}. </P>
-
-<button class="btn btn-block btn-success btn-lg">버튼</button>
-
+<input type="button" value="글쓰기" id="btnCreate">
 <hr>
-<a class="btn btn-block btn-social btn-github">
-	<i class="fa fa-github"></i> Sign in with GitHub
-</a>
 
-<div class="box box-danger">
-<div class="box-header with-border">
-<h3 class="box-title">Donut Chart</h3>
-<div class="box-tools pull-right">
-<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-</button>
-<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-</div>
-</div>
-<div class="box-body">
-<canvas id="pieChart" style="height: 393px; width: 787px;" height="393" width="787"></canvas>
-</div>
+<!-- 특정 글번호를 조회 -->
 
-</div>
+<input type="button" value="1번글 조회" id="btnRead">
+
+<div id="divRead"></div>
+
+
+<script>
+	$(document).ready(function(){
+		//alert("A");
+		
+		// 1번글 조회
+		$("#btnRead").click(function(){
+			
+			var num = 100;
+			
+			$.ajax({
+// 				url : "/boards/"+num,
+				url : "/boards/1",
+				type :"GET",
+				success : function(data){
+					alert("글 조회 페이지 다녀옴");
+					console.log(data);
+					$('#divRead').append(data);
+					
+					// List $.each(); jquery 반복문 출력
+				}
+			});
+		});
+		
+		
+		// 글쓰기 /주소 + 데이터(JSON)
+		$("#btnCreate").click(function(){
+			var boardVO = {
+					"writer" : $("#writer").val(),
+					"title" : $("#title").val(),
+					"content" : $("#content").val()
+				};
+			$.ajax({
+				url : "/boards",
+				type: "POST",
+				data: JSON.stringify(boardVO),
+				contentType : "application/json",
+				success : function(data){
+					alert("페이지 다녀옴 - 글쓰기");
+					alert(data);
+					if(data == "createOK"){
+						$("#writer").val("");
+						$("#title").val("");
+						$("#content").val("");
+					}
+				}
+			});
+		});
+		
+		
+		
+		
+		
+		
+	});
+</script>
 
 <%@ include file="include/footer.jsp" %>
